@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">aplicacion_de_comida</string>
+    <string name="food_ordering_app">Food Ordering App</string>
+    <string name="get_a_meal">Get a Meal</string>
 </resources>
