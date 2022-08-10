@@ -76,10 +76,10 @@ fun WelcomePantalla(onClickIngresar: ()->Unit) {
     }
 }
 
-@Preview
-@Composable
-private fun WelcomepantallaPreview() {
-    Aplicacion_de_comidaTheme {
-        WelcomePantalla(onClickIngresar = {})
-    }
-}
+//@Preview
+//@Composable
+//private fun WelcomepantallaPreview() {
+//    Aplicacion_de_comidaTheme {
+//        WelcomePantalla(onClickIngresar = {})
+//    }
+//}

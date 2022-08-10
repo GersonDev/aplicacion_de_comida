@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="fondo">#CFD8DC</color>
+    <color name="verdes_precio">#3FC979</color>
+
 </resources>

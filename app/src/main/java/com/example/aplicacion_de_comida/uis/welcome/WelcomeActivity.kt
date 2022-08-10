@@ -8,12 +8,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.rememberNavController
 import com.example.aplicacion_de_comida.ui.theme.Aplicacion_de_comidaTheme
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.aplicacion_de_comida.domain.models.Comida
 import com.example.aplicacion_de_comida.routes.WelcomeScreen
 import com.example.aplicacion_de_comida.uis.welcome.components.ComidasPantalla
 import com.example.aplicacion_de_comida.uis.welcome.components.WelcomePantalla
@@ -44,6 +47,7 @@ class WelcomeActivity : ComponentActivity() {
 fun MainScreem(
     welcomeActivity: WelcomeViewModel
 ) {
+    val comidas by welcomeActivity.comidas.observeAsState(listOf())
     val context = LocalContext.current
     val navController = rememberNavController()
     NavHost(navController, startDestination = WelcomeScreen.Bienvenida.route) {
@@ -54,8 +58,11 @@ fun MainScreem(
                 }
             )
         }
-        composable(WelcomeScreen.Comidas.route){
-            ComidasPantalla(comidas = , onClickComida = )
+        composable(WelcomeScreen.Comidas.route) {
+            ComidasPantalla(
+                comidas = comidas,
+                onClickComida = {}
+            )
         }
     }
 }
