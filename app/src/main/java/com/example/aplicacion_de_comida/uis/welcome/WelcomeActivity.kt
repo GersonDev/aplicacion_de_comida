@@ -16,8 +16,8 @@ import androidx.navigation.compose.rememberNavController
 import com.example.aplicacion_de_comida.ui.theme.Aplicacion_de_comidaTheme
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.aplicacion_de_comida.domain.models.Comida
 import com.example.aplicacion_de_comida.routes.WelcomeScreen
+import com.example.aplicacion_de_comida.uis.welcome.components.ComidaDetallePantalla
 import com.example.aplicacion_de_comida.uis.welcome.components.ComidasPantalla
 import com.example.aplicacion_de_comida.uis.welcome.components.WelcomePantalla
 
@@ -45,9 +45,10 @@ class WelcomeActivity : ComponentActivity() {
 
 @Composable
 fun MainScreem(
-    welcomeActivity: WelcomeViewModel
+    welcomeViewModel: WelcomeViewModel
 ) {
-    val comidas by welcomeActivity.comidas.observeAsState(listOf())
+    val comidaSeleccionada by welcomeViewModel.comidaSeleccionada.observeAsState()
+    val comidas by welcomeViewModel.comidas.observeAsState(listOf())
     val context = LocalContext.current
     val navController = rememberNavController()
     NavHost(navController, startDestination = WelcomeScreen.Bienvenida.route) {
@@ -61,7 +62,15 @@ fun MainScreem(
         composable(WelcomeScreen.Comidas.route) {
             ComidasPantalla(
                 comidas = comidas,
-                onClickComida = {}
+                onClickComida = {
+                    welcomeViewModel.enviarComidasSeleccionas(it)
+                    navController.navigate(WelcomeScreen.ComidaDetalle.route)
+                }
+            )
+        }
+        composable(WelcomeScreen.ComidaDetalle.route) {
+            ComidaDetallePantalla(
+                comida = comidaSeleccionada
             )
         }
     }

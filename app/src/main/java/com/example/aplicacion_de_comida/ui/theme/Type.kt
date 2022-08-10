@@ -23,8 +23,8 @@ val Poppins = FontFamily(
 val Typography = Typography(
     h1 = TextStyle(
         fontFamily = Poppins,
-        fontWeight = FontWeight.SemiBold,
-        fontSize = 32.sp
+        fontWeight = FontWeight.Bold,
+        fontSize = 30.sp
     ),
     h2 = TextStyle(
         fontFamily = Poppins,
