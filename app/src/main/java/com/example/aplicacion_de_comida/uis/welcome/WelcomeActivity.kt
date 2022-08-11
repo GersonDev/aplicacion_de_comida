@@ -16,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.aplicacion_de_comida.ui.theme.Aplicacion_de_comidaTheme
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.aplicacion_de_comida.domain.models.Descripcion
 import com.example.aplicacion_de_comida.routes.WelcomeScreen
 import com.example.aplicacion_de_comida.uis.welcome.components.ComidaDetallePantalla
 import com.example.aplicacion_de_comida.uis.welcome.components.ComidasPantalla
@@ -70,7 +71,9 @@ fun MainScreem(
         }
         composable(WelcomeScreen.ComidaDetalle.route) {
             ComidaDetallePantalla(
-                comida = comidaSeleccionada
+                comida = comidaSeleccionada,
+                descripcion = Descripcion
+
             )
         }
     }
