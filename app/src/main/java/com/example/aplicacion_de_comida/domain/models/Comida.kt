@@ -20,7 +20,8 @@ data class ReciboItem(
     val title: String,
     val description: String,
     @DrawableRes val image: Int,
-    )
+)
+
 data class Opcion(
-    @DrawableRes val image: Int
+    @DrawableRes val image: Int,
 )

@@ -25,9 +25,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.aplicacion_de_comida.R
 import com.example.aplicacion_de_comida.domain.models.Comida
+import com.example.aplicacion_de_comida.domain.models.Opcion
 
 @Composable
-fun ComidasPantalla(comidas: List<Comida>, onClickComida: (Comida) -> Unit) {
+fun ComidasPantalla(comidas: List<Comida>, onClickComida: (Comida) -> Unit, opcions: List<Opcion>) {
 
     Box(
         modifier = Modifier
@@ -60,47 +61,9 @@ fun ComidasPantalla(comidas: List<Comida>, onClickComida: (Comida) -> Unit) {
                     horizontalArrangement = Arrangement.SpaceBetween
                 )
                 {
-                    Button(
-                        onClick = {},
-                        colors = ButtonDefaults.buttonColors(backgroundColor = Color.LightGray),
-                        content = {
-                            Image(
-                                painter = painterResource(id = R.drawable.icono_house),
-                                contentDescription = "Icono"
-                            )
-                        }
-                    )
-                    Button(
-                        onClick = {},
-                        colors = ButtonDefaults.buttonColors(backgroundColor = Color.LightGray),
-                        content = {
-                            Image(
-                                painter = painterResource(id = R.drawable.icono_corazon),
-                                contentDescription = "Icono"
-                            )
-                        }
-                    )
-                    Button(
-                        onClick = {},
-                        colors = ButtonDefaults.buttonColors(backgroundColor = Color.LightGray),
-                        content = {
-                            Image(
-                                painter = painterResource(id = R.drawable.icono_filtro),
-                                contentDescription = "Icono"
-                            )
-
-                        }
-                    )
-                    Button(
-                        onClick = {},
-                        colors = ButtonDefaults.buttonColors(backgroundColor = Color.LightGray),
-                        content = {
-                            Image(
-                                painter = painterResource(id = R.drawable.icono_carrito),
-                                contentDescription = "Icono"
-                            )
-                        }
-                    )
+                    opcions.forEach {
+                        Image(painter = painterResource(id = it.image), contentDescription = "")
+                    }
                 }
             }
             LazyVerticalGrid(
