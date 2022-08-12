@@ -48,6 +48,7 @@ class WelcomeActivity : ComponentActivity() {
 fun MainScreem(
     welcomeViewModel: WelcomeViewModel
 ) {
+    val opcions by welcomeViewModel.opcions.observeAsState()
     val comidaSeleccionada by welcomeViewModel.comidaSeleccionada.observeAsState()
     val comidas by welcomeViewModel.comidas.observeAsState(listOf())
     val context = LocalContext.current
@@ -71,9 +72,7 @@ fun MainScreem(
         }
         composable(WelcomeScreen.ComidaDetalle.route) {
             ComidaDetallePantalla(
-                comida = comidaSeleccionada,
-                descripcion = Descripcion
-
+                comida = comidaSeleccionada
             )
         }
     }

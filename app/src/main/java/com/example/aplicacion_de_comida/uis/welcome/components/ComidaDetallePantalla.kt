@@ -1,59 +1,116 @@
 package com.example.aplicacion_de_comida.uis.welcome.components
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Text
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.aplicacion_de_comida.R
 import com.example.aplicacion_de_comida.domain.models.Comida
 import com.example.aplicacion_de_comida.domain.models.Descripcion
 
 @Composable
-fun ComidaDetallePantalla(comida: Comida?,descripcion: Descripcion?) {
-    Box {
-        Column() {
-            Text(text = " ${comida!!.title}")
-            Text(text = " ${comida!!.price}")
-            Text(text = "${descripcion!!.title}")
-            Text(text = "${descripcion!!.description}")
-            Text(text = "${descripcion!!.localtionDescription}")
-            Text(text = "${descripcion!!.timeDescription}")
-            Text(text = "${descripcion!!.location}")
-            Text(text = "${descripcion!!.title}")
-        }
-    }
-
-
-}
-
-@OptIn(ExperimentalMaterialApi::class)
-@Composable
-private fun DescritionComida(descripcion: Descripcion) {
-    Box {
-        Column() {
-            Text(
-                text = descripcion.title
+fun ComidaDetallePantalla(
+    comida: Comida?,
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                colorResource(id = R.color.fondo)
             )
-            Text(
-                text = descripcion.description
+    ) {
+        Column {
+            Column() {
+                Image(
+                    painter = painterResource(id = comida!!.image),
+                    contentDescription = "Platos",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(350.dp),
+                    contentScale = ContentScale.FillBounds
+                )
+            }
+            Spacer(
+                modifier = Modifier
+                    .height(20.dp)
             )
-            Row() {
-                Column() {
-                    Image(painter = painterResource(id = descripcion.imageLocation) , contentDescription ="ubicacion" )
-                    Image(painter = painterResource(id = descripcion.imgeDelivery) , contentDescription ="time" )
-                }
-                Column() {
-                    Text(text = descripcion.location)
-                    Text(text = descripcion.localtionDescription)
-                    Text(text = descripcion.time)
-                    Text(text = descripcion.timeDescription)
-                }
+            Column(
+                modifier = Modifier
+                    .padding(20.dp)
+
+            ) {
+                Text(
+                    text = " ${comida!!.title}",
+                    color = colorResource(id = R.color.plomo_anegrado_80),
+                    style = MaterialTheme.typography.h3,
+                )
+                Text(
+                    text = " ${comida!!.price}",
+                    color = colorResource(id = R.color.verdes_precio),
+                    style = MaterialTheme.typography.h6,
+                )
+            }
+            Column(
+                modifier = Modifier
+                    .padding(20.dp)
+                    .verticalScroll(rememberScrollState())
+            ) {
+                DescriptionComida(
+                    descripcion = comida!!.descripcion
+                )
             }
         }
     }
+}
 
+
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+private fun DescriptionComida(descripcion: Descripcion) {
+    Column() {
+        Text(
+            text = descripcion.title,
+            color = colorResource(id = R.color.plomo_anegrado_80),
+            style = MaterialTheme.typography.h5
+        )
+        Text(
+            text = descripcion.description,
+            color = colorResource(id = R.color.plomo_anegrado_50),
+            style = MaterialTheme.typography.caption
+        )
+        descripcion.reciboItems.forEach {
+            Row() {
+                Column {
+                    Image(
+                        painter = painterResource(id = it.image),
+                        contentDescription = "ubicacion"
+                    )
+                }
+                Column() {
+                    Text(
+                        text = it.title,
+                        color = colorResource(id = R.color.plomo_anegrado_80),
+                        style = MaterialTheme.typography.h5
+                    )
+                    Text(
+                        text = it.description,
+                        color = colorResource(id = R.color.plomo_anegrado_50),
+                        style = MaterialTheme.typography.caption
+                    )
+                }
+            }
+        }
+
+    }
 }

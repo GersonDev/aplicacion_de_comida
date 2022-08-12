@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -23,21 +24,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.aplicacion_de_comida.R
 import com.example.aplicacion_de_comida.ui.theme.Aplicacion_de_comidaTheme
+import com.example.aplicacion_de_comida.ui.theme.Poppins
 
 @Composable
-fun WelcomePantalla(onClickIngresar: ()->Unit) {
+fun WelcomePantalla(onClickIngresar: () -> Unit) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
-                .background(color = Color(0xD73FC979))
+            .background(color = Color(0xD73FC979))
             .fillMaxSize()
     ) {
-
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-
                 modifier = Modifier
                     .height(
                         197.dp
@@ -50,9 +50,11 @@ fun WelcomePantalla(onClickIngresar: ()->Unit) {
             )
             Spacer(modifier = Modifier.padding(bottom = 10.dp))
             Text(
-                text = stringResource(id = R.string.food_ordering_app
+                text = stringResource(
+                    id = R.string.food_ordering_app
                 ),
                 color = Color.White,
+                fontFamily = Poppins,
                 style = MaterialTheme.typography.h1,
                 modifier = Modifier.padding(bottom = 35.dp),
                 textAlign = TextAlign.Center
@@ -68,14 +70,14 @@ fun WelcomePantalla(onClickIngresar: ()->Unit) {
                 content = {
                     Text(
                         text = stringResource(id = R.string.get_a_meal),
-                                style = MaterialTheme.typography.h3
+                        fontFamily = Poppins,
+                        style = MaterialTheme.typography.button
                     )
                 }
             )
         }
     }
 }
-
 //@Preview
 //@Composable
 //private fun WelcomepantallaPreview() {

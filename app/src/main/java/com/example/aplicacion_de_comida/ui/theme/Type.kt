@@ -38,18 +38,18 @@ val Typography = Typography(
     ),
     h4 = TextStyle(
         fontFamily = Poppins,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 12.sp
     ),
     h5 = TextStyle(
         fontFamily = Poppins,
-        fontWeight = FontWeight.W600,
-        fontSize = 16.sp
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 18.sp
     ),
     h6 = TextStyle(
         fontFamily = Poppins,
-        fontWeight = FontWeight.W600,
-        fontSize = 14.sp
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp
     ),
     body1 = TextStyle(
         fontFamily = Poppins,
@@ -64,13 +64,12 @@ val Typography = Typography(
     button = TextStyle(
         fontFamily = Poppins,
         fontWeight = FontWeight.Bold,
-        fontSize = 22.sp
+        fontSize = 16.sp
     ),
-    /*
     caption = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 12.sp
+        fontFamily = Poppins,
+        fontWeight = FontWeight.Medium,
+        fontSize = 14.sp
     )
-    */
+
 )

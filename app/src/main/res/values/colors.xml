@@ -9,5 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="fondo">#CFD8DC</color>
     <color name="verdes_precio">#3FC979</color>
+    <color name="plomo_anegrado_80">#37474F</color>
+    <color name="plomo_anegrado_60">#546E7A</color>
+    <color name="plomo_anegrado_50">#607D8B</color>
+    <color name="plomo_bordeado">#C5C5C5</color>
 
 </resources>
