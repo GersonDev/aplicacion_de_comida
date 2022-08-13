@@ -68,7 +68,7 @@ fun MainScreem(
                     welcomeViewModel.enviarComidasSeleccionas(it)
                     navController.navigate(WelcomeScreen.ComidaDetalle.route)
                 },
-            opcions = opcions!!
+                opcions = opcions!!
             )
         }
         composable(WelcomeScreen.ComidaDetalle.route) {

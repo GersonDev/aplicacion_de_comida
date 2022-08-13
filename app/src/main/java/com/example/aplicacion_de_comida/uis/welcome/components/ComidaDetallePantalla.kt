@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.sp
 import com.example.aplicacion_de_comida.R
 import com.example.aplicacion_de_comida.domain.models.Comida
 import com.example.aplicacion_de_comida.domain.models.Descripcion
+import com.example.aplicacion_de_comida.uis.common.botonVerde
 
 @Composable
 fun ComidaDetallePantalla(
@@ -48,13 +49,38 @@ fun ComidaDetallePantalla(
             Column(
                 modifier = Modifier
                     .padding(20.dp)
-
             ) {
-                Text(
-                    text = " ${comida!!.title}",
-                    color = colorResource(id = R.color.plomo_anegrado_80),
-                    style = MaterialTheme.typography.h3,
-                )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = " ${comida!!.title}",
+                        color = colorResource(id = R.color.plomo_anegrado_80),
+                        style = MaterialTheme.typography.h3,
+                    )
+                    Spacer(
+                        modifier = Modifier
+                            .weight(1f)
+                    )
+                    Image(
+                        painter = painterResource(id = comida!!.imagenpequeña1),
+                        contentDescription = "",
+                        modifier = Modifier.weight(1f)
+                    )
+                    Image(
+                        painter = painterResource(id = comida!!.imagenpequeña2),
+                        contentDescription = ""
+                    )
+                    Image(
+                        painter = painterResource(id = comida!!.imagenpequeña3),
+                        contentDescription = ""
+                    )
+                    Image(
+                        painter = painterResource(id = comida!!.imagenpequeña4),
+                        contentDescription = ""
+                    )
+
+                }
                 Text(
                     text = " ${comida!!.price}",
                     color = colorResource(id = R.color.verdes_precio),
@@ -63,7 +89,7 @@ fun ComidaDetallePantalla(
             }
             Column(
                 modifier = Modifier
-                    .padding(20.dp)
+                    .padding(start = 20.dp, end = 20.dp)
                     .verticalScroll(rememberScrollState())
             ) {
                 DescriptionComida(
@@ -78,7 +104,7 @@ fun ComidaDetallePantalla(
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun DescriptionComida(descripcion: Descripcion) {
-    Column() {
+    Column {
         Text(
             text = descripcion.title,
             color = colorResource(id = R.color.plomo_anegrado_80),
@@ -111,6 +137,6 @@ private fun DescriptionComida(descripcion: Descripcion) {
                 }
             }
         }
-
+        botonVerde()
     }
 }

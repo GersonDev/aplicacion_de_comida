@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.sp
 import com.example.aplicacion_de_comida.R
 import com.example.aplicacion_de_comida.domain.models.Comida
 import com.example.aplicacion_de_comida.domain.models.Opcion
+import com.example.aplicacion_de_comida.uis.common.botonVerde
 
 @Composable
 fun ComidasPantalla(comidas: List<Comida>, onClickComida: (Comida) -> Unit, opcions: List<Opcion>) {
@@ -76,6 +77,7 @@ fun ComidasPantalla(comidas: List<Comida>, onClickComida: (Comida) -> Unit, opci
                     }
                 )
             }
+            botonVerde()
         }
     }
 
@@ -148,7 +150,6 @@ private fun ComidasCard(comida: Comida, onClickComida: (Comida) -> Unit) {
                     contentDescription = "plus corazon"
                 )
             }
-
         }
     }
 }

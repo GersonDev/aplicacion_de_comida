@@ -5,9 +5,13 @@ import androidx.annotation.DrawableRes
 data class Comida(
     val title: String,
     val price: String,
-    val favotiro: Boolean,
+    val favorito: Boolean,
     @DrawableRes val image: Int,
-    val descripcion: Descripcion
+    @DrawableRes val imagenpequeña1:Int,
+    @DrawableRes val imagenpequeña2:Int,
+    @DrawableRes val imagenpequeña3:Int,
+    @DrawableRes val imagenpequeña4:Int,
+    val descripcion: Descripcion,
 )
 
 data class Descripcion(
