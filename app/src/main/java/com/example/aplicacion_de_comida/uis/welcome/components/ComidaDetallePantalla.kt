@@ -100,7 +100,6 @@ fun ComidaDetallePantalla(
     }
 }
 
-
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun DescriptionComida(descripcion: Descripcion) {
