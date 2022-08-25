@@ -22,7 +22,7 @@ import com.example.aplicacion_de_comida.uis.common.botonVerde
 
 @Composable
 fun ComidaDetallePantalla(
-    comida: Comida?,
+    comida: Comida?
 ) {
     Box(
         modifier = Modifier

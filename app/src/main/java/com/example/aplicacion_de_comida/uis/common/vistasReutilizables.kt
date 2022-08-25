@@ -11,7 +11,10 @@ import androidx.compose.ui.graphics.Color
 
 @Composable
 fun botonVerde(){
-    Row(Modifier.background(Color.Green)) {
+    Row(
+        Modifier
+            .background(Color.Green)
+    ) {
         Text(
             text = "2 Items",
             color = Color.White,
